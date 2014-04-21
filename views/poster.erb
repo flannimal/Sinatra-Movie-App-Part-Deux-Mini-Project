@@ -1,32 +1,41 @@
-<div id="post_image">
-	<% if @pic["Poster"] == "Not Available" %>
-<h1>No Image Available</h1>
-<% else %>
-<img src="<%= @pic["Poster"] %>" 
-alt="no picture on file"/>
-</div>
-<% end %>
+<head>
+<link rel="stylesheet" href="/stylesheets/style3.css" type="text/css">
 
-<div id="details">
+<div class="background">
+</div>
+
+</head>
+
+<body>
+<div class ="poster">
+	<% if @pic["Poster"] == "Not Available" %>
+	No Image Available
+	<% else %>
+	<img src="<%= @pic["Poster"] %>" 
+	alt="no picture on file"/>
+	</div>
+	<% end %>
+</div>
+
+<div class="details1">
     <h2><%= @pic["Title"] %></h2>
 </div>
 
-<div>
-Year: <%= @pic["Year"] %></br>
-Rated: <%= @pic["Rated"] %></br>
-Runtime: <%= @pic["Runtime"] %></br>
-Genre: <%= @pic["Genre"] %></br>
-Director: <%= @pic["Director"] %></br>
-Writer: <%= @pic["Writer"] %></br>
-Rating: <%= @pic["imdbRating"] %></br>
-Votes: <%= @pic["imdbVotes"] %></br>
-Plot: <%= @pic["Plot"] %></br>
+<div class="details2">
+
+	Year: <%= @pic["Year"] %></br>
+	Rated: <%= @pic["Rated"] %></br>
+	Runtime: <%= @pic["Runtime"] %></br>
+	Genre: <%= @pic["Genre"] %></br>
+	Director: <%= @pic["Director"] %></br>
+	Writer: <%= @pic["Writer"] %></br>
+	Rating: <%= @pic["imdbRating"] %></br>
+	Votes: <%= @pic["imdbVotes"] %></br>
+	Plot: <%= @pic["Plot"] %></br>
+
 </div>
 
-   <div>
-</br>
-      <a href="/"><button >Search</button></a>
+<a href="/"><button >Search</button></a>
   
-</div>
-</div>
-</div>
+
+</body>

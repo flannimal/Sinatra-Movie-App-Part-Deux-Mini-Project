@@ -18,13 +18,18 @@ end
 get '/results' do
 	res=Typhoeus.get("www.omdbapi.com/", :params => { :s => params["movie"] }) 
   json_results = JSON.parse(res.body) 
-  @movies = json_results["Search"]   # .each this on erb page
+  # puts json_results
+	  @movies = json_results["Search"]   # .each this on erb page 
+	  @movies = @movies.sort_by {|x| x["Year"]}    #sorts by year
+	  @movies = @movies.reverse										 #most recent displayed first
+	  puts @movies
   erb :results
 end
 
 get '/movie/:imdbID' do
 	res=Typhoeus.get("www.omdbapi.com/", :params => { :i => params["imdbID"] })
 	@pic = JSON.parse(res.body) 
+	# puts @pic
 	erb :poster
 end
 
